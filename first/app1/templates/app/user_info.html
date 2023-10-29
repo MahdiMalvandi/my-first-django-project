@@ -33,10 +33,11 @@
                             <p class="user-data-content">job : {{ user.account.job }}</p>
                         </li>
                         <li class="user-data-li">
-                            <p class="user-data-content"></p>
-                        </li>
-                        <li class="user-data-li">
-                            <p class="user-data-content"></p>
+                            <p class="user-data-content">phone : {% if user.account.phone %}
+                            {{ user.account.phone }}
+                                {% else %}
+                                The phone number is not set
+                            {% endif %} </p>
                         </li>
                         <li class="user-data-li">
                             <p class="user-data-content">bio : {{ user.account.bio }}</p>

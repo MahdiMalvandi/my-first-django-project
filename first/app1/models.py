@@ -55,7 +55,7 @@ class Post(models.Model):
     # choice fields
     status = models.CharField(
         max_length=3, choices=Status.choices, default=Status.DRAFT, verbose_name="وضعیت")
-    categories = models.CharField(choices=CATEGORY_CHOICE, default='other')
+    categories = models.CharField(choices=CATEGORY_CHOICE, default='other', max_length=100)
 
     objects = models.Manager()
     published = PublishedManager()

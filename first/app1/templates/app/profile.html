@@ -33,10 +33,11 @@
                             <p class="user-data-content">job : {{ user.account.job }}</p>
                         </li>
                         <li class="user-data-li">
-                            <p class="user-data-content"></p>
-                        </li>
-                        <li class="user-data-li">
-                            <p class="user-data-content"></p>
+                            <p class="user-data-content">phone : {% if user.account.phone %}
+                            {{ user.account.phone }}
+                                {% else %}
+                                The phone number is not set
+                            {% endif %} </p>
                         </li>
                         <li class="user-data-li">
                             <p class="user-data-content">bio : {{ user.account.bio }}</p>
@@ -58,7 +59,7 @@
                                         <div class="btns">
                                             <a href="{% url 'app1:delete-post' post.slug %}" class="delete-btn">delete</a>
                                             <a href="{% url 'app1:edit-post' post.slug %}" class="edit-btn">edit</a>
-                                            <a href="{% url 'app1:show-posts-comments' post.slug %}" class="delete-btn">comments</a>
+                                            <a href="{% url 'app1:show-posts-comments' post.slug %}" class="comments-btn">comments</a>
                                         </div>
 
                                     </div>

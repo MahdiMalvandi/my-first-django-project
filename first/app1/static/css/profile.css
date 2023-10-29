@@ -34,12 +34,13 @@ main * {
 }
 .user-data {
   margin: 1rem 0rem;
-  direction: rtl;
+  float: right;
   margin-right: 4rem;
 }
 .user-data-li {
   padding: 0.7rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 .user-can-do {
   display: flex;
@@ -96,11 +97,13 @@ main * {
   padding: 0.3rem;
   border-radius: 0.5rem;
   color: white;
+  font-size: .8rem;
 }
 .btns {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }
 .delete-btn{
   background: red;
@@ -113,4 +116,15 @@ main * {
   height: 4rem;
   justify-content: space-between;
   width: 100%;
+}
+.pagination_box {
+  padding: .65rem;
+  margin-bottom: 1rem;
+}
+.page_text {
+  color: black;
+  font-weight: bold;
+}
+.comments-btn {
+  background: green;
 }
