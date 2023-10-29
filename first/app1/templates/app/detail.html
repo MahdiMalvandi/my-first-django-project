@@ -1,0 +1,49 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% block title %}blogs{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{% static "css/detail.css" %}">
+<link rel="stylesheet" href="{% static "css/comments.css" %}">
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="data">
+        <div class="swiper ">
+            <div class="swiper-wrapper">
+                {% for img in posts.images.all %}
+                <div class="swiper-slide">
+                    <img src="{{img.imgfile.url}}" alt="{{img.imgfile.title}}" class="blog-img">
+                </div>
+                {% endfor %}
+                    
+            </div>
+        </div>
+
+
+   
+        <div class="content">
+            <h1 class="title">{{posts.title}}</h1>
+            <p class="author-name">{{ posts.users }}</p>
+            <p class="author-date">{{ posts.publish | date:"Y M D"}}</p>
+            <p class="author-date">count of comment : {{ comments|length }}</p>
+            <p class="text">{{ posts.text }}</p>
+        </div>
+
+
+    </div>
+        <h1 style="text-align: center;color:white">user information</h1>
+        <div class="content" style="display:flex;margin-top: 4rem;gap:4rem">
+            <img style="width: 4rem;height: 4rem;border-radius: 100%" src="{{posts.users.account.photo.url}}">
+            <div>
+                <p class="">{{ posts.users.first_name }} {{ posts.users.last_name }}</p>
+                <a href="{% url 'app1:user-info' posts.users.username %}"><p class="">@{{ posts.users.username }}</p></a>
+                <p class="author-date">{{ posts.users.account.job }}</p>
+                <p class="author-date">{{ posts.users.account.bio }}</p>
+
+            </div>
+        </div>
+    {% include "partials/comments.html" %}
+</div>
+
+{% endblock main %}

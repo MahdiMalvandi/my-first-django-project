@@ -1,0 +1,116 @@
+main * {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.content {
+  margin-top: 4rem;
+}
+.profile-card {
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  width: 40%;
+  padding: 3rem;
+  margin: 0 auto;
+}
+.user-profile {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  display: block;
+}
+.profile-card-bottom {
+  margin-top: 2rem;
+  color: white;
+}
+.first-and-last-name {
+  text-align: center;
+  font-size: 2rem;
+}
+.user-name {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.user-data {
+  margin: 1rem 0rem;
+  direction: rtl;
+  margin-right: 4rem;
+}
+.user-data-li {
+  padding: 0.7rem;
+  font-weight: 600;
+}
+.user-can-do {
+  display: flex;
+  justify-content: space-between;
+}
+.user-can-do div {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.user-can-do div a {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.log-out-box {
+  background-color: red;
+}
+.change-password-box {
+  background-color: blue;
+}
+.posts {
+  margin-top: 3rem;
+}
+.sub-title {
+  text-align: center;
+}
+.posts-ul {
+  margin-top: 2rem;
+}
+.posts-item {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.posts-img {
+  background: white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1000rem;
+}
+.post-title {
+  color: white;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+.btns a {
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+.btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.delete-btn{
+  background: red;
+}
+.edit-btn {
+  background: blue;
+}
+.post-title-box {
+  display: flex;
+  height: 4rem;
+  justify-content: space-between;
+  width: 100%;
+}

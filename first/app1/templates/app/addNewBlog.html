@@ -1,0 +1,27 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% load blog_tags %}
+{% block title %}blogs{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{% static "css/addNew.css" %}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="container">
+        <h1 class="title">add new post</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{forms.as_p}}
+
+
+
+
+
+            <input type="submit" value="send" class="submit-btn">
+        </form>
+
+    </div>
+</main>
+{% endblock main %}

@@ -1,0 +1,83 @@
+header {
+  background-color: #00d0ff;
+  padding: 1rem 2rem;
+  height: 6rem;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left-side {
+  display: flex;
+  gap: 5rem;
+}
+.logo-text {
+  font-size: 3rem;
+  font-family: monospace;
+  background: linear-gradient(90deg, #4471db 10%, #053bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 36rem;
+}
+.menu-list__item {
+  font-size: 1.5rem;
+  font-family: cursive;
+}
+.login-pgae-box {
+  width: 9rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: #0a19a3;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.login__link {
+  font-size: 1.2rem;
+  color: white;
+  font-family: cursive;
+}
+.user_name {
+  font-size: 1.2rem;
+  color: white;
+  font-family: cursive;
+}
+.login-pgae-box:hover {
+  background-color: #fff;
+}
+.login-pgae-box:hover .user_name {
+  color: #0a19a3;
+}
+.login-pgae-box:hover .login__link {
+  color: #0a19a3;
+}
+.search-box {
+  overflow: hidden;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.search-input::placeholder{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.search-box form {
+  border-radius: .5rem;
+  margin-top: 0;
+  padding: 0;
+  width: 12rem;
+}
+.search-input {
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+}

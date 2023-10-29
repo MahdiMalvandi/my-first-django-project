@@ -1,0 +1,31 @@
+{% load blog_tags %}
+
+<div class="comments-container">
+    <h1 class="comments-title">comments</h1>
+    <form method="post" action="{% url "app1:post_comment" posts.slug  %}">
+        {% csrf_token %}
+        <textarea name="body" placeholder="enter your comment" class="body-text" required></textarea>
+        <input type="submit" value="send" class="input-submit">
+    </form>
+    <div class="comments">
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="comment">
+                    <div class="comment-top">
+                        <p class="comment-author">{{comment.name}}</p>
+                        <p class="comment-date">{{comment.created|date:"Y/m/d"}}</p>
+                    </div>
+                    <div class="comment-bottom">
+                        <p class="comment-body-text">
+                            {{comment.body|cencorship }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1 class="comments-title">There is no comment</h1>
+        {% endif %}
+
+
+    </div>
+</div>

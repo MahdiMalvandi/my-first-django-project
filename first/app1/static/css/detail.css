@@ -1,0 +1,35 @@
+.data {
+    display: flex;
+    margin-top: 10rem;
+    gap: 4rem;
+}
+.blog-img {
+    width: 100%;
+    height: 100%;
+    
+}
+.content {
+color: white;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+width: 60%;
+}
+.text,.author-name  {
+    margin-top: 2rem;
+}
+.swiper{
+    width: 35%;
+    border-radius: .5rem;
+    border:1px solid white;
+    overflow: hidden;
+}
+.swiper-slide{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.swiper-wrapper{
+    height: 100%;
+}
+.swiper-slide:first-child{
+    display: block;
+}

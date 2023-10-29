@@ -1,0 +1,42 @@
+<header>
+    <nav>
+        <div class="left-side">
+            <div class="logo-box">
+                <h1 class="logo-text">logo</h1>
+            </div>
+            <ul class="menu-list">
+                <li class="menu-list__item">
+                    <a href="{% url "app1:home page" %}" class="menu-list__link">home</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url "app1:blogs" %}" class="menu-list__link">blog</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url "app1:contact_us" %}" class="menu-list__link">contact us</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url "app1:statistics" %}" class="menu-list__link">statistics</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="{% url "app1:add_new_post" %}" class="menu-list__link">add New</a>
+                </li>
+
+
+            </ul>
+            <div class="search-box">
+                <form action="{% url 'app1:search' %}" method="get">
+                    <input type="search" class="search-input" name="query" placeholder="Search Anything">
+                </form>
+            </div>
+        </div>
+        <div class="login-pgae-box">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'app1:profile' %}" class="user_name">{{request.user.first_name |default:request.user.username}}</a>
+            {% else %}
+            <a href="{% url "app1:login" %}" class="login__link">login / sign up</a>
+            {% endif %}
+        </div>
+    </nav>
+    
+
+</header>

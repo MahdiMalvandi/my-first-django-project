@@ -1,0 +1,18 @@
+{% extends "parent/base.html" %}
+{% load static %} 
+
+{% block title %}blogs{% endblock title %} 
+
+{% block head %}
+  <link rel="stylesheet" href="{% static "css/contact.css" %}">
+{% endblock %}
+{% block main %}
+<main>
+  <div class="container">
+    <h1 class="title">contact us</h1>
+    <div class="main">
+      {% include "forms/ticket.html" %}
+    </div>
+  </div>
+</main>
+{% endblock %}

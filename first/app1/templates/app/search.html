@@ -1,0 +1,46 @@
+{% extends "parent/base.html" %}
+{% load static %} 
+
+{% block title %}blogs{% endblock title %} 
+
+{% block head %}
+  <link rel="stylesheet" href="{% static "css/blog.css" %}">
+{% endblock %}
+
+{% block main %}
+<main>
+    <div class="container">
+      <h1 class="title">search blogs</h1>
+      <div class="main">
+        <div class="blogs-container">
+          {% for post in posts %}
+          <div class="blog">
+            <div class="blog--top">
+              <img src="{{ post.images.first.imgfile.url  }}" alt="{{ post.images.first.title  }}" class="blog--img" />
+
+            </div>
+            <div class="blog--bottom">
+              <div class="blog--text-box">
+                <a href="{{post.get_absolute_url}}"
+                  ><p class="blog--title">{{ post.title }}</p></a
+                >
+                <p class="blog--text">{{ post.text }}</p>
+              </div>
+              <div class="blog--writer">
+                <div class="blog-write-box">
+                  <img src="" alt="" class="blog-writer-img" />
+                </div>
+                <p class="blog--writer-name">{{post.users}}</p>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <p class="title">the result is empty</p>
+          {% endfor %}
+        </div>
+      </div>
+      {% include "partials/pagination.html" with page=page_obj %}
+  
+    </div>
+  </main>
+{% endblock %}

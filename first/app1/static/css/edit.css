@@ -1,0 +1,31 @@
+form {
+    margin-top: 2rem;
+    display: flex;
+
+    gap: 10rem;
+    align-items: center;
+    width: 30%;
+  }
+  input {
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    width: 100%;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  label {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    color: white;
+  }
+  
+  .errors {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    color: red;
+  }
+  img {
+    width: 300px;
+    height: 300px;
+  }

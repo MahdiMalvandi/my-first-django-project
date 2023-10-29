@@ -1,0 +1,34 @@
+{% extends "parent/base.html" %}
+{% load static %} 
+
+{% block title %}edit post{% endblock title %} 
+
+{% block head %}
+  <link rel="stylesheet" href="{% static "css/edit.css" %}">
+{% endblock %}
+{% block main %}
+<main>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+           <div>
+            {{form.as_div}}
+            <input type="submit" value="send">
+           </div>
+            {% if post %}
+            <div>
+                {% for img in post.images.all %}
+                    <div>
+                        <img src="{{img.imgfile.url}}" alt="{{img.imgfile.title}}">
+                        <a href="{% url 'app1:delete-img' img.id %}">delete image</a>
+                    </div>
+                    
+                {% endfor %}
+            </div>
+                
+            {% endif %}
+        </form>
+    </div>
+</main>
+{% endblock %}

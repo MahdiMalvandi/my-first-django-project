@@ -1,0 +1,43 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% load blog_tags %}
+{% block title %}blogs{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{% static "css/statistics.css" %}">
+{% endblock %}
+
+{% block main %}
+
+<main>
+    <div class="container">
+    <h1 class="title">statistics</h1>
+        <p>Total Posts: {% total_posts %}</p>
+        <p>Total Comments: {% total_comments %}</p>
+        <p>Total Users: {% total_users %}</p>
+        <p>Sum Reading Times : {% get_sum_reading_time %} minutes</p>
+        {% get_max_post as pmax %}
+        <div>
+            <p>Most View:</p>
+            {% for i in pmax %}
+            <a href="{% url 'app1:blog_detail_page' i.slug %}"><p style="margin-left:2rem">{{i}}</p></a>
+                
+            {% endfor %}
+        </div>
+        {% get_min_post as pmin %}
+        <div>
+            <p>Lowest View:</p>
+            {% for i in pmin %}
+            <a href="{% url 'app1:blog_detail_page' i.slug %}"><p style="margin-left:2rem">{{i}}</p></a>
+            {% endfor %}
+        </div>
+        {% get_active_user as active %}
+        <div>
+            <p>Active Users:</p>
+            {% for i in active %}
+            <p style="margin-left: 2rem;"><a href="{% url 'app1:user-info' i.username %}"><span>@{{i}}</span></a><span > with {{i.posts}} posts</span></p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+{% endblock main %}

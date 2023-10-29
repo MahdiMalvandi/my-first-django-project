@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="signUp">
+            <h1 class="sighUp-title">sign up</h1>
+            <form  method="post">
+                {% csrf_token %}
+                <input type="text" name="username" class="userName" placeholder="Enter Your userName">
+                <input type="email" name="email" class="email" placeholder="Enter Your email">
+                <input type="text" name="first_name" class="userFirstName" placeholder="Enter Your firstname">
+                <input type="text" name="last_name" class="userLastName" placeholder="Enter Your lastname">
+                <input type="password" name="password" class="userPassword" placeholder="Enter Your password">
+                <input type="password" name="password2" class="userPassword" placeholder="Enter The repeat password">
+                <input type="submit" value="sign-up">
+            </form>
+            <p>if you register
+            <a href="{% url 'app1:login' %}">click</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

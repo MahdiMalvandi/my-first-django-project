@@ -1,0 +1,10 @@
+@import url("reset.css");
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

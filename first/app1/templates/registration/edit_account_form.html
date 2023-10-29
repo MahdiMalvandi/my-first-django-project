@@ -1,0 +1,30 @@
+{% extends '../parent/base.html' %}
+
+{% block head %}
+<style>
+.box {
+  width: 50%;
+  margin: 2rem auto;
+  color: white;
+}
+.box div {
+  width: 100%;
+}
+</style>
+{% endblock %}
+
+{% block main %}
+<main>
+<div class="container">
+                    <div class="box">
+                    <form method="post" action="{% url 'app1:profile-edit' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ user_form.as_div }}
+                        {{ account_form.as_div }}
+                        <input type="submit">
+                    </form>
+                </div>
+
+</div>
+</main>
+{% endblock %}

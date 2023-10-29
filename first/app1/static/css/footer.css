@@ -1,0 +1,9 @@
+footer {
+    color: white;
+    background-color: #00d0ff;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 5rem;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

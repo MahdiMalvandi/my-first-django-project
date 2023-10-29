@@ -1,0 +1,56 @@
+@import "blog-card.css";
+
+.main{
+  display: flex;
+}
+.blogs-container {
+  width: 80%;
+  margin-top: 4rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.categories-container {
+  padding: 1rem;
+  width: 20%;
+}
+.category {
+  width: 100%;
+  height: 4rem;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+ 
+}
+.category a {
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-system, sans-serif;
+  font-size: 1.2rem;
+}
+.no-posts{
+  margin: 0 auto;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.category:nth-child(1){
+ background-color: blue;
+}
+.category:nth-child(2){
+  background-color: red;
+}
+.category:nth-child(3){
+  background-color: green;
+}
+.category:nth-child(4){
+  background-color: pink;
+}
+.category:nth-child(5){
+  background-color: purple;
+}
+.category:nth-child(6){
+  background-color: rgb(206, 206, 3);
+}

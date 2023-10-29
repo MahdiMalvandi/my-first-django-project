@@ -1,0 +1,142 @@
+<div class="pagination">
+{% if cate %}
+    {% if page.paginator.num_pages > 1 %}
+
+
+    {% if page.has_previous %}
+        <a href="{% url "app1:blog_detail_page_pagination_by_category"  cate page.previous_page_number %}">
+            <div class="pagination_box">
+                <p class="page_text">pervious</p>
+            </div>
+        </a>
+
+    {% if page.number > 3 %}
+    <a href="{% url "app1:blog_detail_page_pagination_by_category" cate 1  %}">
+        <div class="pagination_box">
+            <p class="page_text">1</p>
+        </div>
+    </a>
+        {% if page.number > 4 %}
+
+            <div class="pagination_box">
+                <p class="page_text">...</p>
+            </div>
+
+        {% endif %}
+    {% endif %}
+    {% endif %}
+
+    {% for num in page.paginator.page_range %}
+    {% if page.number == num %}
+        <a href="{% url "app1:blog_detail_page_pagination_by_category" cate num  %}">
+                <div class="pagination_box">
+                    <p class="page_text">{{num}}</p>
+                </div>
+            </a>
+    {% elif num > page.number|add:'-3' and num < page.number|add:'3' %}
+        <a href="{% url "app1:blog_detail_page_pagination_by_category" cate num  %}">
+                <div class="pagination_box">
+                    <p class="page_text">{{num}}</p>
+                </div>
+            </a>
+    {% endif %}
+    {% endfor %}
+
+    {% if page.has_next %}
+    {% if page.number < page.paginator.num_pages|add:'-3' %}
+    <div class="pagination_box">
+        <p class="page_text">...</p>
+    </div>
+        <a href="{% url "app1:blog_detail_page_pagination_by_category" cate page.paginator.num_pages  %}">
+            <div class="pagination_box">
+                <p class="page_text">{{ page.paginator.num_pages }}</p>
+            </div>
+        </a>
+
+    {% elif page.number < page.paginator.num_pages|add:'-2' %}
+    <a href="{% url "app1:blog_detail_page_pagination_by_category" cate page.paginator.num_pages  %}">
+        <div class="pagination_box">
+            <p class="page_text">{{ page.paginator.num_pages }}</p>
+        </div>
+    </a>
+    {% endif %}
+
+    <a href="{% url "app1:blog_detail_page_pagination_by_category" cate page.next_page_number  %}">
+        <div class="pagination_box">
+            <p class="page_text">Next</p>
+        </div>
+    </a>
+    {% endif %}
+    {% endif %}
+{% else %}
+    {% if page.paginator.num_pages > 1 %}
+
+
+    {% if page.has_previous %}
+        <a href="{% url "app1:blog_detail_page_pagination" page.previous_page_number %}">
+            <div class="pagination_box">
+                <p class="page_text">pervious</p>
+            </div>
+        </a>
+
+    {% if page.number > 3 %}
+    <a href="{% url "app1:blog_detail_page_pagination" 1 %}">
+        <div class="pagination_box">
+            <p class="page_text">1</p>
+        </div>
+    </a>
+        {% if page.number > 4 %}
+
+            <div class="pagination_box">
+                <p class="page_text">...</p>
+            </div>
+
+        {% endif %}
+    {% endif %}
+    {% endif %}
+
+    {% for num in page.paginator.page_range %}
+    {% if page.number == num %}
+        <a href="{% url "app1:blog_detail_page_pagination" num %}">
+                <div class="pagination_box">
+                    <p class="page_text">{{num}}</p>
+                </div>
+            </a>
+    {% elif num > page.number|add:'-3' and num < page.number|add:'3' %}
+        <a href="{% url "app1:blog_detail_page_pagination" num %}">
+                <div class="pagination_box">
+                    <p class="page_text">{{num}}</p>
+                </div>
+            </a>
+    {% endif %}
+    {% endfor %}
+
+    {% if page.has_next %}
+    {% if page.number < page.paginator.num_pages|add:'-3' %}
+    <div class="pagination_box">
+        <p class="page_text">...</p>
+    </div>
+        <a href="{% url "app1:blog_detail_page_pagination" page.paginator.num_pages %}">
+            <div class="pagination_box">
+                <p class="page_text">{{ page.paginator.num_pages }}</p>
+            </div>
+        </a>
+
+    {% elif page.number < page.paginator.num_pages|add:'-2' %}
+    <a href="{% url "app1:blog_detail_page_pagination" page.paginator.num_pages %}">
+        <div class="pagination_box">
+            <p class="page_text">{{ page.paginator.num_pages }}</p>
+        </div>
+    </a>
+    {% endif %}
+
+    <a href="{% url "app1:blog_detail_page_pagination" page.next_page_number %}">
+        <div class="pagination_box">
+            <p class="page_text">Next</p>
+        </div>
+    </a>
+    {% endif %}
+    {% endif %}
+
+{% endif %}
+</div>

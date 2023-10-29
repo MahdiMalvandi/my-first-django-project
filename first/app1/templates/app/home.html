@@ -1,0 +1,61 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% block title %}home{% endblock title %}
+
+
+{% block head %}
+  <link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock %}
+{%block main %}
+<main>
+    <div class="container">
+
+        <h1 class="title">home</h1>
+       <div class="blogs">
+           <div class="blog-top">
+               <h2 class="sub-title">The Best Articles</h2>
+               <a href="{% url 'app1:blogs' %}">all articles</a>
+           </div>
+            <div class="blogs-container">
+            {% for post in posts %}
+                <div class="blog">
+                  <div class="blog--top">
+                    <img src="{{ post.images.first.imgfile.url  }}" alt="{{ post.images.first.title  }}" class="blog--img" />
+                  </div>
+                  <div class="blog--bottom">
+                    <div class="blog--text-box">
+                      <a href="{{post.get_absolute_url}}"><p class="blog--title">{{ post.title }}</p></a>
+                      <p class="blog--text">{{ post.text }}</p>
+                    </div>
+                    <div class="blog--writer">
+                      <p class="blog--writer-name">{{post.users}}</p>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+
+        </div>
+       </div>
+        <div class="random-post-box">
+            <h1 class="random-post-title">Readable</h1>
+            {% with random_post as post %}
+                <div class="blog">
+                  <div class="blog--top">
+                    <img src="{{ post.images.first.imgfile.url  }}" alt="{{ post.images.first.title  }}" class="blog--img" />
+                  </div>
+                  <div class="blog--bottom">
+                    <div class="blog--text-box">
+                      <a href="{{post.get_absolute_url}}"><p class="blog--title">{{ post.title }}</p></a>
+                      <p class="blog--text">{{ post.text }}</p>
+                    </div>
+                    <div class="blog--writer">
+                      <p class="blog--writer-name">{{post.users}}</p>
+                    </div>
+                  </div>
+                </div>
+            {% endwith %}
+        </div>
+      </div>
+
+</main>
+{% endblock main %}

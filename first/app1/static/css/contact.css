@@ -1,0 +1,60 @@
+main form {
+    margin: auto;
+    margin-top: 2rem ;
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    align-items: center;
+    width: 35%;
+    border: 2px solid white;
+    border-radius: .5rem;
+    padding: 2.5rem;
+}
+input[type="submit"]{
+    padding: .5rem;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1.3rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.submit {
+width: 10rem;
+}
+p{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+}
+li{
+    color: white;
+}
+textarea{
+    width: 100%;
+    height: 15rem;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    letter-spacing: 1.5px;
+    resize: vertical;
+}
+textarea::placeholder{
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+select {
+    border: none;
+    outline: none;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+option {
+
+}
+.errorlist li {
+    font-size: 1.3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 1rem;
+}

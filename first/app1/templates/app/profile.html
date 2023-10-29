@@ -1,0 +1,174 @@
+{% extends "parent/base.html" %}
+{% load static %}
+{% block title %}blogs{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+
+{% block main %}
+<main>
+    <div class="container">
+        <h1 class="title">profile</h1>
+
+        <div class="content">
+            <div class="profile-card">
+                <div class="profile-card-top">
+                    {% if user.account.photo %}
+                        <img src="{{ user.account.photo.url }}" alt="" class="user-profile">
+                    {% else %}
+                    <img src="" alt="" class="user-profile">
+
+                    {% endif %}
+                </div>
+                <div class="profile-card-bottom">
+                    <h2 class="first-and-last-name">
+                        hello {{user.user.first_name}} {{user.last_name}}
+                    </h2>
+                    <h3 class="user-name">
+                        @{{user.username}}
+                    </h3>
+                    <ul class="user-data">
+                        <li class="user-data-li">
+                            <p class="user-data-content">job : {{ user.account.job }}</p>
+                        </li>
+                        <li class="user-data-li">
+                            <p class="user-data-content"></p>
+                        </li>
+                        <li class="user-data-li">
+                            <p class="user-data-content"></p>
+                        </li>
+                        <li class="user-data-li">
+                            <p class="user-data-content">bio : {{ user.account.bio }}</p>
+                        </li>
+                    </ul>
+                    <div class="posts">
+                        <h2 class="sub-title">Your Posts</h2>
+
+                        {% if posts %}
+                        <ul class="posts-ul">
+
+                            {% for post in posts %}
+                                <li class="posts-item">
+                                    <div class="posts-img-box">
+                                        <img src="{{post.images.first.imgfile.url}}" alt="" class="posts-img">
+                                    </div>
+                                    <div class="post-title-box">
+                                        <a href="{{post.get_absolute_url}}" class="post-title">{{post}}</a>
+                                        <div class="btns">
+                                            <a href="{% url 'app1:delete-post' post.slug %}" class="delete-btn">delete</a>
+                                            <a href="{% url 'app1:edit-post' post.slug %}" class="edit-btn">edit</a>
+                                            <a href="{% url 'app1:show-posts-comments' post.slug %}" class="delete-btn">comments</a>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                            {% endfor %}
+
+
+
+                        </ul>
+                                <div class="pagination">
+
+                                {% with posts as page %}
+                                 {% if page.number > 0 %}
+
+
+                                    {% if page.has_previous %}
+                                        <a href="{% url "app1:profile-posts-by-page" page.previous_page_number %}">
+                                            <div class="pagination_box">
+                                                <p class="page_text">pervious</p>
+                                            </div>
+                                        </a>
+
+                                    {% if page.number > 3 %}
+                                    <a href="{% url "app1:profile-posts-by-page" 1 %}">
+                                        <div class="pagination_box">
+                                            <p class="page_text">1</p>
+                                        </div>
+                                    </a>
+                                        {% if page.number > 4 %}
+
+                                            <div class="pagination_box">
+                                                <p class="page_text">...</p>
+                                            </div>
+
+                                        {% endif %}
+                                    {% endif %}
+                                    {% endif %}
+
+                                    {% for num in page.paginator.page_range %}
+                                    {% if page.number == num %}
+                                        <a href="{% url "app1:profile-posts-by-page" num %}">
+                                                <div class="pagination_box">
+                                                    <p class="page_text">{{num}}</p>
+                                                </div>
+                                            </a>
+                                    {% elif num > page.number|add:'-3' and num < page.number|add:'3' %}
+                                        <a href="{% url "app1:profile-posts-by-page" num %}">
+                                                <div class="pagination_box">
+                                                    <p class="page_text">{{num}}</p>
+                                                </div>
+                                            </a>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                    {% if page.has_next %}
+                                    {% if page.number < page.paginator.num_pages|add:'-3' %}
+                                    <div class="pagination_box">
+                                        <p class="page_text">...</p>
+                                    </div>
+                                        <a href="{% url "app1:profile-posts-by-page" page.paginator.num_pages %}">
+                                            <div class="pagination_box">
+                                                <p class="page_text">{{ page.paginator.num_pages }}</p>
+                                            </div>
+                                        </a>
+
+                                    {% elif page.number < page.paginator.num_pages|add:'-2' %}
+                                    <a href="{% url "app1:profile-posts-by-page" page.paginator.num_pages %}">
+                                        <div class="pagination_box">
+                                            <p class="page_text">{{ page.paginator.num_pages }}</p>
+                                        </div>
+                                    </a>
+                                    {% endif %}
+
+                                    <a href="{% url "app1:profile-posts-by-page" page.next_page_number %}">
+                                        <div class="pagination_box">
+                                            <p class="page_text">Next</p>
+                                        </div>
+                                    </a>
+                                    {% endif %}
+                                    {% endif %}
+                                {% endwith %}
+
+
+
+                                </div>
+                        {% else %}
+                        <h3 class="sub-title">You have not released a post yet</h3>
+                        {% endif %}
+                    </div>
+                    <div class="user-can-do">
+                        <div class="log-out-box">
+                            <a href="{% url 'app1:logout' %}" class="log-out">Log Out</a>
+                        </div>
+                        <div class="change-password-box">
+                            <a href="{% url 'app1:password_change' %}" class="change-password">change password</a>
+                        </div>
+                        <div class="change-password-box">
+                            <a href="{% url 'app1:profile-edit' %}" class="change-password">edit profile</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</main>
+
+{% endblock main %}

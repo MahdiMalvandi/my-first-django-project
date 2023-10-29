@@ -1,0 +1,52 @@
+@import url('reset.css');
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: .5rem;
+}
+input:not([type="submit"]){
+    width: 70%;
+}
+input:last-child{
+    font-weight: bold;
+}
+.container{
+background: #0029af;
+width: 30%;
+margin: 0 auto;
+border-radius: 1rem;
+display: flex;
+padding: 1rem;
+gap: 1rem;
+}
+.login,.signUp{
+
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+}
+.login-title,.sighUp-title{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.signUp{
+ border-left: 1px solid;
+}
+form {
+ 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
