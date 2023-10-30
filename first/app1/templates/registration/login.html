@@ -16,12 +16,12 @@
             <form method="post">
                 {% csrf_token %}
 
-                <input type="text" name="username" class="loginUserName" placeholder="Enter Your userName">
-                <input type="password" name="password" class="loginPassword" placeholder="Enter Your password">
+                {{form.as_div}}
                 <input type="hidden" name="next" value="{{next}}">
+                
                 <input type="submit" value="loginSubmit">
             </form>
-            <a href="{% url 'app1:password_reset' %}">Did you forget your password?</a>
+            
             <p style="color: white">if you register
             <a href="{% url 'app1:register' %}">click</a>
             </p>

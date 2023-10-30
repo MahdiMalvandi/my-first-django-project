@@ -17,7 +17,7 @@
                     {% if user.account.photo %}
                         <img src="{{ user.account.photo.url }}" alt="" class="user-profile">
                     {% else %}
-                    <img src="" alt="" class="user-profile">
+                    <img src= "../../../images/download.png" alt="" class="user-profile">
 
                     {% endif %}
                 </div>
@@ -29,19 +29,25 @@
                         @{{user.username}}
                     </h3>
                     <ul class="user-data">
+                        {% if user.account.job%}
                         <li class="user-data-li">
                             <p class="user-data-content">job : {{ user.account.job }}</p>
                         </li>
+                        {% endif %}
+                        
+                        {% if user.account.phone %}
                         <li class="user-data-li">
-                            <p class="user-data-content">phone : {% if user.account.phone %}
-                            {{ user.account.phone }}
-                                {% else %}
-                                The phone number is not set
-                            {% endif %} </p>
+                            <p class="user-data-content">phone : {{ user.account.phone }}</p>
                         </li>
+                        {% endif %}
+                        
+                        
+                        {% if user.account.bio %}
                         <li class="user-data-li">
                             <p class="user-data-content">bio : {{ user.account.bio }}</p>
                         </li>
+                        {% endif %}
+                            
                     </ul>
                     <div class="posts">
                         <h2 class="sub-title">Your Posts</h2>

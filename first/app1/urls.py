@@ -32,20 +32,12 @@ urlpatterns = [
     path('blog/delete_post/<str:slug>', views.delete_post, name="delete-post"),
 
     # login or log out
-    path("login/", auth_views.LoginView.as_view(), name="login"),
+    path("login/", views.CustomLoginView.as_view(), name="login"),
     path('logout/', views.log_out, name="logout"),
 
     # password change
     path('password-change/', auth_views.PasswordChangeView.as_view(success_url="done"), name="password_change"),
     path('password-change/done/', auth_views.PasswordChangeDoneView.as_view(), name="password_change_done"),
-
-    # reset password
-    path('password-reset/', auth_views.PasswordResetView.as_view(success_url="done"), name="password_reset"),
-    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
-    path('password-reset/<uidb64>/<token>/',
-         auth_views.PasswordResetConfirmView.as_view(success_url="/app/password-reset/complete"),
-         name="password-reset-confirmed"),
-    path('password-reset/complete/', auth_views.PasswordResetCompleteView.as_view(), name="password-complete"),
 
     # register
     path('register/', views.register, name="register"),

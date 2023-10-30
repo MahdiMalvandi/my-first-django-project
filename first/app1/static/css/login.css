@@ -13,10 +13,13 @@ input{
     border-radius: .5rem;
 }
 input:not([type="submit"]){
-    width: 70%;
+    width: 100%;
+    
 }
-input:last-child{
+input[type="submit"]{
     font-weight: bold;
+    order: 2;
+    margin-bottom: 1rem;
 }
 .container{
 background: #0029af;
@@ -49,4 +52,17 @@ form {
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+}
+.errorlist {
+    color: white;
+    margin-bottom: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    order: 2;
+}
+
+form div {
+    width: 70%;
+}
+.helptext{
+    display: none;
 }

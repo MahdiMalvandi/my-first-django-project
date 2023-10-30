@@ -1,7 +1,7 @@
 from django import forms
 from django.utils import timezone
 from .models import *
-
+from django.contrib.auth.forms import AuthenticationForm
 
 class TicketForm(forms.Form):
     SUBJECT_CHOICES = (
@@ -39,12 +39,37 @@ class SearchForm(forms.Form):
 
 
 class UserRegisterForm(forms.ModelForm):
-    password = forms.CharField(max_length=20, label="password", widget=forms.PasswordInput)
-    password2 = forms.CharField(max_length=20, label="repeat password", widget=forms.PasswordInput)
+    password = forms.CharField(max_length=20, label=False, widget=forms.PasswordInput(attrs={
+        'placeholder':'Enter Your Password'
+    }))
+    password2 = forms.CharField(max_length=20, label=False, widget=forms.PasswordInput(attrs={
+        'placeholder':'Enter The Repeat Password '
+    }))
 
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']
+        labels = {
+                  'username':False,
+                   'first_name':False,
+                   'last_name':False,
+                   'email':False
+                  }
+        widgets = {
+            'username':forms.TextInput(attrs={
+                
+                'placeholder': 'Enter Your Username'
+            }),
+            'first_name':forms.TextInput(attrs={
+                'placeholder': 'Enter Your First Name'
+            }),
+            'last_name':forms.TextInput(attrs={
+                'placeholder': 'Enter Your Last Name'
+            }),
+            'email':forms.TextInput(attrs={
+                'placeholder': 'Enter Your Email'
+            })
+        }
 
     def clean_password2(self):
         cd = self.cleaned_data
@@ -64,3 +89,16 @@ class EditAccountForm(forms.ModelForm):
         model = Account
         fields = ['bio', 'job', 'photo', 'date_of_birth']
 
+
+class CustomLoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={"placeholder":'Enter Your Username'}),label=False)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":'Enter Your Password'}),label=False)
+    
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        if username and password:
+            user = authenticate(username=username, password=password)
+            if not user:
+                raise forms.ValidationError("Invalid username or password")
+        return username

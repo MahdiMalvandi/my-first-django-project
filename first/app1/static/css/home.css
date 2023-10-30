@@ -7,11 +7,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
 }
 .sub-title,.random-post-title{
     font-size: 2rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .blog-top a{
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     color: white;
 }
 .blogs-container{
@@ -19,6 +22,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 3rem;
+    gap: 2rem;
 }
 .random-post-box .blog{
     margin-top: 3rem;

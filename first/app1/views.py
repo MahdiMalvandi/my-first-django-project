@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .forms import *
 from django.contrib.postgres.search import TrigramSimilarity
 import random
+from django.contrib.auth import views as auth_views
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
@@ -273,3 +274,9 @@ def user_info(request, username: str, page: int = 1):
     except PageNotAnInteger:
         posts = paginator.page(1)
     return render(request, 'app/user_info.html', {"user": user, "posts": posts})
+
+
+
+
+class CustomLoginView(auth_views.LoginView):
+    authentication_form = CustomLoginForm
