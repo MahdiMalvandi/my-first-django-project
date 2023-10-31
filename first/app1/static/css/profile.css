@@ -35,12 +35,10 @@ main * {
 .user-data {
   margin: 1rem 0rem;
   float: right;
-  margin-right: 4rem;
 }
 .user-data-li {
   padding: 0.7rem;
   font-weight: 600;
-  white-space: nowrap;
 }
 .user-can-do {
   display: flex;
