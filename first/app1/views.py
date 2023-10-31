@@ -6,6 +6,7 @@ import random
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 
 
 def er404(request):
@@ -35,8 +36,9 @@ def ticket(request):
         form = TicketForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            ticket_obj = Ticket.objects.create(message=cd["message"], name=cd["name"], email=cd["email"],
-                                               phone=cd["phone"], title=cd["title"])
+            # ticket_obj = Ticket.objects.create(message=cd["message"], name=cd["name"], email=cd["email"],
+            #                                    phone=cd["phone"], title=cd["title"])
+            send_mail(cd['title'], cd['message'], 'mahdimalvandi6@gmail.com', [ 'mahdimll1386@gmail.com'], fail_silently=False)
             return redirect("app1:home page")
     else:
         form = TicketForm()

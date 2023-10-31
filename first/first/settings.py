@@ -94,9 +94,9 @@ DATABASES = {
     }
 }
 
-LOGIN_REDIRECT_URL = "/app/profile/"
-LOGIN_URL = '/app/login/'
-LOGOUT_URL = '/app/logout/'
+LOGIN_REDIRECT_URL = "/profile/"
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -141,4 +141,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "images")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mahdimalvandi6@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = 'skhgtohmocndfzus'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -10,9 +10,9 @@ class TicketForm(forms.Form):
     )
 
     message = forms.CharField(widget=forms.Textarea, required=True)
-    name = forms.CharField(max_length=100, required=True)
-    email = forms.EmailField(max_length=100, required=True)
-    phone = forms.CharField(max_length=12, required=True)
+    name = forms.CharField(max_length=100, required=False)
+    email = forms.EmailField(max_length=100, required=False)
+    phone = forms.CharField(max_length=12, required=False)
     title = forms.ChoiceField(choices=SUBJECT_CHOICES, required=True)
 
 
