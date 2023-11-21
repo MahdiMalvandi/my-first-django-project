@@ -13,29 +13,15 @@ Enter the project folder
 cd my-first-django-project/
 ```
 
-If virtualenv is not installed [(What is virtualenv?)](https://www.youtube.com/watch?v=N5vscPTWKOk&t=313s):
 
-```terminal 
-pip install virtualenv
-```
 
-Create a virtual environment
-
-```terminal 
-virtualenv venv
-```
 
 Activate the environment everytime you open the project
 
 ```terminal 
-source venv/Scripts/activate
+env/Scripts/activate
 ```
 
-Install requirements 🛠
-
-```terminal 
-pip install -r requirements.txt
-```
 
 Run migrations for Database
 
