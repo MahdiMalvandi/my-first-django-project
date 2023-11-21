@@ -21,7 +21,10 @@ def home(request):
     """home page"""
 
     # Get A random Post
-    post = Post.published.get(slug=Post.published.all()[random.randint(0, len(Post.published.all()) - 1)].slug)
+    try:
+        post = Post.published.get(slug=Post.published.all()[random.randint(0, len(Post.published.all()) - 1)].slug)
+    except:
+        post = []
     blogs = Post.published.all()[:4]
 
     context = {

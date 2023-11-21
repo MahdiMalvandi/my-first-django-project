@@ -38,6 +38,8 @@
        </div>
         <div class="random-post-box">
             <h1 class="random-post-title">Readable</h1>
+            
+            {% if random_posts %}
             {% with random_post as post %}
                 <div class="blog">
                   <div class="blog--top">
@@ -54,6 +56,9 @@
                   </div>
                 </div>
             {% endwith %}
+              
+            {% endif %}
+              
         </div>
       </div>
 

@@ -11,8 +11,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='post',
+            model_name='Post',
             name='categories',
-            field=models.CharField(choices=[('python', 'python'), ('go lang', 'go lang'), ('java', 'java'), ('other', 'other'), ('ai', 'ai ')], default='other'),
+            field=models.CharField(choices=[('python', 'python'), ('go lang', 'go lang'), ('java', 'java'), ('other', 'other'), ('ai', 'ai ')], default='other', max_length=100),
         ),
     ]
