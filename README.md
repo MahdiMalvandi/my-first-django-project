@@ -4,9 +4,10 @@ During that course, 2 projects were done and this project is the first project t
 
 ## Environment Setup 🚀
 
-
+```terminal
 git clone https://github.com/MahdiMalvandi/my-first-django-project.git
 ```
+Enter the project folder
 
 ```terminal
 cd my-first-django-project/
@@ -26,51 +27,32 @@ virtualenv venv
 
 Activate the environment everytime you open the project
 
-`$ source venv/Scripts/activate`
+```terminal 
+source venv/Scripts/activate
+```
 
 Install requirements 🛠
 
-`$ pip install -r requirements.txt`
-
-`$ pre-commit install`
+```terminal 
+pip install -r requirements.txt
+```
 
 Run migrations for Database
 
 
-```terminal python manage.py migrate```
+```terminal 
+python manage.py migrate
+```
 
 Create superuser for Admin Login 🔐
 
-`$ python manage.py createsuperuser`
 
-Enter your desired username, email and password. Make sure you remember them as you'll need them in future.
-
-eg.
-
-    Username: admin
-
-    Email: admin@admin.com
-
-    Password: HighlyConfidentialPassword
-
-All Set! 🤩
+```terminal 
+python manage.py createsuperuser
+```
 
 Now you can run the server to see your application up & running 🚀
 
-`$ python manage.py runserver`
-
-To exit the environment ❎
-
-`$ deactivate`
-
-Every time you want to open the application in browser, make sure you run:
-
-`$ source venv/Scripts/activate`
-
-`$ python manage.py runserver`
-
-
-Then the database should be migrated with this command:
 ```terminal
-python
+python manage.py runserver
 ```
